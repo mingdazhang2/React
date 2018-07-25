@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
 import './App.css';
-// import Radium, {StyleRoot} from 'radium';
-import Person from './Person/Person';
+import Radium, {StyleRoot} from 'radium';
+import Person from './Person/Person1';
 class App extends Component {
   state = {
     persons: [
@@ -66,7 +66,11 @@ class App extends Component {
       font:'inherit',
       border:'1px solid blue',
       padding:'8px',
-      cursor:'pointer'
+      cursor:'pointer',
+      ':hover':{
+        backgroundColor:'lightgreen',
+        color:'black'
+      }
     }
     let persons=null;
     if(this.state.showPersons){
@@ -109,7 +113,7 @@ class App extends Component {
       classes.push('bold');
     }
     return (
-      
+      <StyleRoot>
       <div className="App">
        <h1>Hello world</h1>
        <p className={classes.join(' ')}>I love wzx</p>
@@ -133,10 +137,10 @@ class App extends Component {
         age= {this.state.persons[2].age}/> */}
        {/* </div>:null}   */}
       </div>
-      
+      </StyleRoot>
     );
     // return React.createElement('div', {className:'App'}, React.createElement('h1', null, 'Hi, I\'m god' ))
   }
 }
 
-export default App;
+export default Radium(App);
